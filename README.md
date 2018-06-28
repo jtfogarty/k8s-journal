@@ -31,7 +31,7 @@ Its a good idea to set the project.  The only way I know to get the project id i
 ```
 gcloud config set project [PROJECT ID]
 ```
-In order to use `kubectl` you must execute the below credentials command with the proper 
+In order to use `kubectl` you must execute the below credentials command with the proper cluster name and zone
 ```
 gcloud container clusters get-credentials [CLUSTERNAME] --zone=[ZONE]
 ```
