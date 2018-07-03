@@ -10,4 +10,4 @@
 
 [Mastering Kubernetes]()
 
-[Kubernetes for Developer - the easy way](https://github.com/jtfogarty/k8s-journal/master/k8s-4dvlpr-jx/README.md)
+[Kubernetes for Developer - the easy way](https://github.com/jtfogarty/k8s-journal/tree/master/k8s-4dvlpr-jx)
