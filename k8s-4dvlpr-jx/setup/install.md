@@ -23,3 +23,8 @@ When building cloud native applications, it seem silly to develop in a non-cloud
 
 ### Creating a cluster with Jenkins-x
 - [jenkins-x.io doc](https://jenkins-x.io/getting-started/create-cluster/#using-google-cloud-gke)
+
+```
+jx create cluster gke terraform
+--cluster-name docure-01 --default-admin-password @@@@@@@@ --domain docure.??? --external-ip ???????? --git-api-token ########## --git-username jtfogarty --helm3 --install-only --machine-type n1-standard-4 --no-default-environments --project-id docure-01 kubeflow-01 --register-local-helmrepo --skip-login --username j.007ba7@gmail.com --verbose --zone us-central1-a
+```
