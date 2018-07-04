@@ -22,4 +22,4 @@ When building cloud native applications, it seem silly to develop in a non-cloud
 3) jx init
 
 ### Creating a cluster with Jenkins-x
-    [jenkins-x.io doc](https://jenkins-x.io/getting-started/create-cluster/#using-google-cloud-gke)
+- [jenkins-x.io doc](https://jenkins-x.io/getting-started/create-cluster/#using-google-cloud-gke)
