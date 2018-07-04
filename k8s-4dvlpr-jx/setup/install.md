@@ -5,16 +5,21 @@ When building cloud native applications, it seem silly to develop in a non-cloud
 1) gcloud - [Install Instructions](https://cloud.google.com/sdk/docs/quickstart-macos)
     - tl;dr
         1) login to google cloud
-        2) install gcloud on the new workstation
+        2) install gcloud
         3) initalize gcloud
         4) set project id
         5) get credentials
+    
+    Reading
+    - [introduction](https://medium.com/google-cloud/introduction-to-g-cloud-command-line-tool-f10834789b73)
 2) kubectl - [Install Instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
     - tl;dr 
         1) brew install kubernetes-cli
 
-### Installing jenkins-x
+### Installing Jenkins-x
 1) brew tap jenkins-x/jx
 2) brew install jx
 3) jx init
 
+### Creating a cluster with Jenkins-x
+    [jenkins-x.io doc](https://jenkins-x.io/getting-started/create-cluster/#using-google-cloud-gke)
