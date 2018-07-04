@@ -1,6 +1,6 @@
 ## These are notes from the Kubernetes for Developers book with regard to how this works from a Jenkins-x perspective
 ## TOC
-1) Setting up k8s using jx
+1) [Setting up k8s using jx](https://github.com/jtfogarty/k8s-journal/blob/master/k8s-4dvlpr-jx/setup/install.md)
 2) How to put your project into a container to deploy on k8s-jx
 3) Interacting with your project on k8s-jx
 4) How to repeatedly deploy your project on k8s-jx
