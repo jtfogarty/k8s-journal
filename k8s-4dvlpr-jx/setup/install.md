@@ -24,22 +24,56 @@ When building cloud native applications, it seem silly to develop in a non-cloud
 ### Creating a cluster with Jenkins-x
 - [jenkins-x.io doc](https://jenkins-x.io/getting-started/create-cluster/#using-google-cloud-gke)
 
+Set Variables
 ```
-jx create cluster gke terraform \
---cluster-name docure-01 \
+CLUSTER_NAME=
+ADMIN_PW=
+API_TOKEN=
+GIT_USER=
+PROJECT_ID=
+GKE_USER=
+```
+```
+jx create cluster gke \
+--batch-mode=true \
+--cluster-name ${CLUSTER_NAME} \
 --default-admin-password ${ADMIN_PW} \
 --domain docure.cc \
---external-ip ???????? \
 --git-api-token ${API_TOKEN} \
---git-username jtfogarty \
---helm3 \
---install-only \
---machine-type n1-standard-4 \
---no-default-environments \
---project-id docure-01 \
---register-local-helmrepo \
+--git-provider-url github.com \
+--git-username ${GIT_USER} \
+--machine-type n1-standard-2 \
+--max-num-nodes 5 \
+--min-num-nodes 3 \
+--no-default-environments \         # the Stage and Production environments will NOT be created nor will the git repos
+--project-id ${PROJECT_ID} \
 --skip-login \
---username j.007ba7@gmail.com \
+--username ${GKE_USER} \
 --verbose \
---zone us-central1-a
+--zone us-central1-c
+```
+
+
+### What if you already have GitHub repos that you want to include into your jx cluster?
+1) Use the above jx create
+2) jx import
+3) Then do the below to create the stating and production environments
+
+
+### To create the environments after the cluster is created, excute the below; 
+
+[Developing Git](https://jenkins-x.io/developing/git/)
+
+```
+jx create git server 
+jx create token
+jx create env
+```
+
+### Delete steps
+
+```
+jx uninstall --batch-mode -y
+helm list --all --short | xargs -L1 helm delete --purge
+helm reset
 ```
