@@ -56,8 +56,8 @@ jx create cluster gke \
 
 ### What if you already have GitHub repos that you want to include into your jx cluster?
 1) Use the above jx create
-2) jx import
-3) Then do the below to create the stating and production environments
+2) Then do the below to create the stating and production environments 
+3) [jx import](https://jenkins-x.io/commands/jx_import/)
 
 
 ### To create the environments after the cluster is created, excute the below; 
