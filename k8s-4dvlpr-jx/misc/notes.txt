@@ -1,0 +1,109 @@
+Jeffs-iMac:jtfogarty jeff-imac$ jx create cluster gke --batch-mode=true --cluster-name ${CLUSTER_NAME} --default-admin-password ${ADMIN_PW} --domain docure.cc --git-api-token ${API_TOKEN} --git-provider-url github.com --git-username ${GIT_USER} --machine-type n1-standard-2 --max-num-nodes 5 --min-num-nodes 3 --no-default-environments --project-id ${PROJECT_ID} --skip-login --username ${GKE_USER} --verbose 
+Updated property [core/project].
+Lets ensure we have container and compute enabled on your project via: gcloud services enable container compute
+Waiting for async operation operations/tmo-acf.1f94ec73-e104-4c27-b1b9-bde0d6d169d3 to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.1f94ec73-e104-4c27-b1b9-bde0d6d169d3
+Waiting for async operation operations/tmo-acf.b762bdc7-bce8-4cc3-af52-f0effed4f27d to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.b762bdc7-bce8-4cc3-af52-f0effed4f27d
+? Google Cloud Zone: us-central1-c
+Creating cluster...
+WARNING: Currently node auto repairs are disabled by default. In the future this will change and they will be enabled by default. Use `--[no-]enable-autorepair` flag  to suppress this warning.
+WARNING: Currently VPC-native is not the default mode during cluster creation. In the future, this will become the default mode and can be disabled using `--no-enable-ip-alias` flag. Use `--[no-]enable-ip-alias` flag to suppress this warning.
+WARNING: Starting in Kubernetes v1.10, new clusters will no longer get compute-rw and storage-ro scopes added to what is specified in --scopes (though the latter will remain included in the default --scopes). To use these scopes, add them explicitly to --scopes. To use the new behavior, set container/new_scopes_behavior property (gcloud config set container/new_scopes_behavior true).
+Creating cluster kubeflow-01...
+................................................................................................................done.
+Created [https://container.googleapis.com/v1/projects/kubeflow-01/zones/us-central1-c/clusters/kubeflow-01].
+To inspect the contents of your cluster, go to: https://console.cloud.google.com/kubernetes/workload_/gcloud/us-central1-c/kubeflow-01?project=kubeflow-01
+kubeconfig entry generated for kubeflow-01.
+NAME         LOCATION       MASTER_VERSION  MASTER_IP       MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+kubeflow-01  us-central1-c  1.9.7-gke.3     35.224.144.189  n1-standard-2  1.9.7-gke.3   3          RUNNING
+Initialising cluster ...
+Git configured for user: jtfogarty and email jeff@fogarty.org
+Trying to create ClusterRoleBinding j-007ba7-gmail-com-cluster-admin-binding for role: cluster-admin for user j.007ba7@gmail.com
+Created ClusterRoleBinding j-007ba7-gmail-com-cluster-admin-binding
+Created ServiceAccount tiller in namespace kube-system
+Trying to create ClusterRoleBinding tiller for role: cluster-admin and ServiceAccount: kube-system/tiller
+Created ClusterRoleBinding tiller
+Initialising helm using ServiceAccount tiller in namespace kube-system
+helm installed and configured
+Waiting for external loadbalancer to be created and update the nginx-ingress-controller service in kube-system namespace
+Note: this loadbalancer will fail to be provisioned if you have insufficient quotas, this can happen easily on a GKE free account. To view quotas run: gcloud compute project-info describe
+External loadbalancer created
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name jxing-nginx-ingress-controller
+You can now configure your wildcard DNS docure.cc to point to 35.225.155.19
+nginx ingress controller installed and configured
+Cloning the Jenkins X cloud environments repo to /Users/jeff-imac/.jx/cloud-environments
+Cloning the Jenkins X cloud environments repo to /Users/jeff-imac/.jx/cloud-environments
+Counting objects: 731, done.
+Total 731 (delta 0), reused 0 (delta 0), pack-reused 731
+Generated helm values /Users/jeff-imac/.jx/extraValues.yaml
+Installing Jenkins X platform helm chart from: /Users/jeff-imac/.jx/cloud-environments/env-gke
+waiting for install to be ready, if this is the first time then it will take a while to download images
+Jenkins X deployments ready in namespace jx
+
+	
+	********************************************************
+	
+	     NOTE: Your admin password is: AUG-2-2018
+	
+	********************************************************
+	
+	
+Jenkins X installation completed successfully
+
+	
+	********************************************************
+	
+	     NOTE: Your admin password is: AUG-2-2018
+	
+	********************************************************
+	
+	
+Your kubernetes context is now set to the namespace: jx 
+To switch back to your original namespace use: jx ns default
+For help on switching contexts see: https://jenkins-x.io/developing/kube-context/
+
+To import existing projects into Jenkins:       jx import
+To create a new Spring Boot microservice:       jx create spring -d web -d actuator
+To create a new microservice from a quickstart: jx create quickstart
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for kubeflow-01.
+Context "gke_kubeflow-01_us-central1-c_kubeflow-01" modified.
+NAME              HOSTS                          ADDRESS          PORTS     AGE
+chartmuseum       chartmuseum.jx.docure.cc       104.197.21.141   80        1m
+docker-registry   docker-registry.jx.docure.cc   104.197.21.141   80        1m
+jenkins           jenkins.jx.docure.cc           104.197.21.141   80        1m
+monocular         monocular.jx.docure.cc         104.197.21.141   80        1m
+nexus             nexus.jx.docure.cc             104.197.21.141   80        1m
+
+
+
+
+
+                       
+Jeffs-iMac:jtfogarty jeff-imac$ jx version
+NAME               VERSION
+jx                 1.3.85
+jenkins x platform 0.0.1790
+kubernetes cluster v1.9.7-gke.3
+kubectl            v1.10.0
+helm client        v2.9.1+g20adb27
+helm server        v2.9.1+g20adb27
+git                git version 2.16.3
+
+A new jx version is available: 1.3.88
+? Would you like to upgrade to the new jx version? Yes
+
+Jeffs-iMac:jtfogarty jeff-imac$ jx upgrade platform
+Cloning the Jenkins X cloud environments repo to /Users/jeff-imac/.jx/cloud-environments
+? A local Jenkins X cloud environments repository already exists, recreate with latest? Yes
+Cloning the Jenkins X cloud environments repo to /Users/jeff-imac/.jx/cloud-environments
+Counting objects: 742, done.
+Compressing objects: 100% (8/8), done.
+Total 742 (delta 2), reused 3 (delta 1), pack-reused 733
+Upgrading to version 0.0.1785
+
+
+
