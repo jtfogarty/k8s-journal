@@ -8,14 +8,15 @@ TMPDIR=/vault/userconfig/tls
 
 mkdir -p ${TMPDIR}
 
+git checkout ./vault-helm/values.yaml
+
 ./setup-v1.sh ${SECRET_NAME} ${TMPDIR}
 
 ./setup-v1-injector.sh ${INJECTOR_SECRET_NAME} ${TMPDIR}
 
-INJECTOR_CA < cat ${TMPDIR}/vault-injector.ca | base64 | tr -d '\n'
+INJECTOR_CA=$(cat ${TMPDIR}/vault-injector.ca | base64 | tr -d '\n')
 
-#/Users/jeff-imac/Documents/projects/src/github.com/jtfogarty/k8s-journal/vault-install/vault-helm/values.yaml
-sed -i 's/CA-BUNDLE-REPLACE-ME/${INJECTOR_CA}' ./vault-helm/values.yaml
+sed -i "s/CA-BUNDLE-REPLACE-ME/${INJECTOR_CA}/" ./vault-helm/values.yaml
 
 exit
 
