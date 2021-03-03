@@ -20,3 +20,16 @@ sed -i "s/CA-BUNDLE-REPLACE-ME/${INJECTOR_CA}/" ./vault-helm/values.yaml
 
 exit
 
+# after the pod(s) are running execute the below
+helm install vault --namespace=vault ./vault-helm
+
+kubectl exec -it -n vault vault-0 -- /bin/sh
+ > vault operator init
+ > vault operator unseal
+
+or 
+
+kubectl exec -ti -n vault vault-0 -- vault operator init
+kubectl exec -ti -n vault vault-0 -- vault operator unseal
+
+
