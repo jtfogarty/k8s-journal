@@ -106,7 +106,6 @@ injector:
     certName: vault-injector.crt
     keyName: vault-injector.key
 
-#  resources: {}
   resources:
     requests:
       memory: 256Mi
@@ -179,7 +178,6 @@ server:
   # See https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
   updateStrategyType: "OnDelete"
 
- # resources: {}
   resources:
     requests:
       memory: 256Mi
@@ -204,7 +202,7 @@ server:
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
     hosts:
-      - host: whatever.local
+      - host: chart-example.local
         paths: []
 
     tls: []
@@ -304,7 +302,6 @@ server:
     # GOOGLE_PROJECT: myproject
     # GOOGLE_APPLICATION_CREDENTIALS: /vault/userconfig/myproject/myproject-creds.json
     VAULT_CACERT: /vault/userconfig/vault-server-tls/vault.ca
-#    VAULT_ADDR: https://127.0.0.1:8200
 
   # extraSecretEnvironmentVars is a list of extra environment variables to set with the stateful set.
   # These variables take value from existing Secret objects.
