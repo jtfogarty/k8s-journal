@@ -19,10 +19,10 @@ INJECTOR_CA=$(cat ${TMPDIR}/vault-injector.ca | base64 | tr -d '\n')
 sed -i "s/CA-BUNDLE-REPLACE-ME/${INJECTOR_CA}/" ./vault-helm/values.yaml
 
 exit
-
-# after the pod(s) are running execute the below
+# execute the below one at a time
 helm install vault --namespace=vault ./vault-helm
 
+# after the pod(s) are running execute the below
 kubectl exec -it -n vault vault-0 -- /bin/sh
  > vault operator init
  > vault operator unseal
