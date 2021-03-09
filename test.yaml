@@ -1,0 +1,15 @@
+session_name: Minus
+start_directory: /home/jtfogar
+windows:
+- window_name: Testing
+  layout: main-horizontal
+  options:
+    main-pane-height: 20
+  panes:
+  - shell_command:
+    - ssh jtfogar@mf-mstr-01
+    focus: true
+  - shell_command:
+    - ssh jtfogar@mf-wrkr-01
+  - shell_command:
+    - ssh jtfogar@mf-wrkr-02
