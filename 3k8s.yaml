@@ -1,0 +1,41 @@
+session_name: 3k8s
+start_directory: /home/jtfogar
+windows:
+- window_name: prd-2
+  layout: main-horizontal
+  options:
+    main-pane-height: 20
+  panes:
+  - shell_command:
+    - ssh jtfogar@prd-mstr-02
+    focus: true
+  - shell_command:
+    - ssh jtfogar@dev-wrkr-03
+  - shell_command:
+    - ssh jtfogar@msi-2060
+- window_name: jx
+  layout: main-horizontal
+  options:
+    main-pane-height: 20
+  panes: 
+  - shell_command:
+    - ssh jtfogar@jx-mstr
+    focus: true
+  - shell_command:
+    - ssh jtfogar@jx-wrkr-01
+  - shell_command:
+    - ssh jtfogar@jx-wrkr-02
+- window_name: prd
+  layout: main-horizontal
+  options:
+    main-pane-height: 20
+  panes:
+  - shell_command:
+    - ssh jtfogar@prd-mstr-01
+    focus: true
+  - shell_command:
+    - ssh jtfogar@prd-wrkr-01
+  - shell_command:
+    - ssh jtfogar@prd-wrkr-02
+  - shell_command:
+    - ssh jtfogar@prd-wrkr-03

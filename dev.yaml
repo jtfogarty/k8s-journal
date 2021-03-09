@@ -1,0 +1,29 @@
+session_name: Devel
+start_directory: /home/jtfogar
+windows:
+- window_name: dev
+  layout: main-horizontal
+  options:
+    main-pane-height: 35
+  panes:
+  - shell_command:
+    - ssh jtfogar@dev-mstr-01
+    focus: true
+  - shell_command:
+    - ssh jtfogar@dev-wrkr-01
+  - shell_command:
+    - ssh jtfogar@dev-wrkr-02
+  - shell_command:
+    - ssh jtfogar@msi-2060
+- window_name: prd
+  layout: main-horizontal
+  options:
+    main-pane-height: 35
+  panes:
+  - shell_command:
+    - top
+    focus: true
+  - shell_command:
+    - top
+  - shell_command:
+    - htop
