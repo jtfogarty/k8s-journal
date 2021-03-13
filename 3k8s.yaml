@@ -13,7 +13,7 @@ windows:
     - ssh jtfogar@dev-wrkr-03
   - shell_command:
     - ssh jtfogar@msi-2060
-- window_name: jx
+- window_name: jx-1
   layout: main-horizontal
   options:
     main-pane-height: 20
